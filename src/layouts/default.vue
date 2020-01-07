@@ -61,7 +61,9 @@
     <v-bottom-navigation
       :input-value="isLoggedIn"
       :value="activeBtn"
+      grow
       color="teal"
+      fixed
     >
       <v-btn @click="go('/app')">
         <span>Accueil</span>
