@@ -4,6 +4,12 @@
       <v-toolbar-title v-text="title" @click="go('/')" />
       <v-spacer />
 
+      <v-btn icon>
+        <v-badge offset-x="6" offset-y="6" color="pink" dot>
+          <v-icon>mdi-bell</v-icon>
+        </v-badge>
+      </v-btn>
+
       <v-btn v-if="!isLoggedIn" rounded color="primary" nuxt to="/connexion">
         <v-icon left>mdi-account-circle</v-icon> Connexion
       </v-btn>
@@ -62,6 +68,7 @@
       :input-value="isLoggedIn"
       :value="activeBtn"
       grow
+      app
       color="teal"
       fixed
     >

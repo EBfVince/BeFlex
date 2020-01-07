@@ -28,10 +28,6 @@
         </v-col>
       </v-row>
     </v-container>
-    <p>
-      L'idée aussi c'est que lorsque le prof a besoin de partager un document
-      avec toute la classe, elle le dépose directement là.
-    </p>
   </div>
 </template>
 

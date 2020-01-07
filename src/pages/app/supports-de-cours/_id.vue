@@ -9,12 +9,20 @@
 
     <v-container>
       <v-row>
-        <v-col v-for="card in cards" :key="card.title" cols="12">
-          <v-card @click="downloadFile(card)" ripple>
+        <v-col v-for="card in cards" :key="card.title" class="d-flex" cols="12">
+          <v-card @click="downloadFile(card)" class="flex-grow-1" ripple>
             <v-card-text>
               <v-icon>mdi-xbox-controller</v-icon> {{ card.name }}
             </v-card-text>
           </v-card>
+          <v-btn
+            @click="deleteFile(card)"
+            icon
+            color="red"
+            class="align-self-center ml-2"
+          >
+            <v-icon>mdi-delete</v-icon>
+          </v-btn>
         </v-col>
       </v-row>
     </v-container>
@@ -104,6 +112,22 @@ export default {
       meta.ref.getDownloadURL().then((url) => {
         window.open(url, '_blank')
       })
+    },
+    deleteFile(meta) {
+      meta.ref
+        .delete()
+        .then(() => {
+          this.snackbarText = 'Fichier supprimé ✔'
+          this.snackbarDisplay = true
+        })
+        .catch((error) => {
+          this.snackbarText = 'Une erreur est survenue'
+          this.snackbarDisplay = true
+          console.error("Erreur lors de la suppression d'un fichier", error)
+        })
+        .finally(() => {
+          this.getFiles()
+        })
     }
   }
 }
