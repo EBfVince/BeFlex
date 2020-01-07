@@ -138,7 +138,7 @@ export default {
     }
   },
   mounted() {
-    this.$refs.calendar.scrollToTime({ hour: 7, minute: 30 })
+    this.$refs.calendar.scrollToTime({ hour: 8, minute: 30 })
     this.$refs.calendar.checkChange()
   },
   methods: {

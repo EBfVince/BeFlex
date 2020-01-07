@@ -61,23 +61,21 @@
     <v-bottom-navigation
       :input-value="isLoggedIn"
       :value="activeBtn"
-      grow
       color="teal"
-      fixed
     >
       <v-btn @click="go('/app')">
         <span>Accueil</span>
-        <v-icon>mdi-home</v-icon>
+        <v-icon>mdi-firebase</v-icon>
       </v-btn>
 
-      <v-btn @click="go('/app/edt')">
+      <v-btn @click="go('/app/emploi-du-temps')">
         <span>Planning</span>
         <v-icon>mdi-calendar</v-icon>
       </v-btn>
 
-      <v-btn>
-        <span>Nearby</span>
-        <v-icon>mdi-map-marker</v-icon>
+      <v-btn @click="go('/app/supports-de-cours')">
+        <span>Cours</span>
+        <v-icon>mdi-book-open-page-variant</v-icon>
       </v-btn>
     </v-bottom-navigation>
   </v-app>
