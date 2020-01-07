@@ -1,4 +1,4 @@
-import colors from 'vuetify/es5/util/colors'
+// import colors from 'vuetify/es5/util/colors'
 
 // Firebase settings
 const firebaseConfig = {
@@ -23,6 +23,21 @@ export default {
   server: {
     // port: 8000, // par défaut: 3000
     // host: '0.0.0.0' // par défaut: localhost
+  },
+
+  vue: {
+    config: {
+      warnHandler: (msg, vm, trace) => {
+        if (
+          msg ===
+          'The .native modifier for v-on is only valid on components but it was used on <div>.'
+        ) {
+          msg = null
+          vm = null
+          trace = null
+        }
+      }
+    }
   },
 
   /**
@@ -113,7 +128,8 @@ export default {
               ssr: true
             }
           },
-          firestore: true
+          firestore: true,
+          storage: true
         }
       }
     ]
