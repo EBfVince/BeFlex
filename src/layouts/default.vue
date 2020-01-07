@@ -1,92 +1,114 @@
 <template>
-  <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
-      app
-    >
-      <v-list>
-        <v-list-item
-          v-for="(item, i) in items"
-          :key="i"
-          :to="item.to"
-          router
-          exact
-        >
-          <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn @click.stop="miniVariant = !miniVariant" icon>
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn @click.stop="clipped = !clipped" icon>
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn @click.stop="fixed = !fixed" icon>
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
+  <v-app>
+    <v-app-bar fixed app>
+      <v-toolbar-title v-text="title" @click="go('/')" />
       <v-spacer />
-      <v-btn @click.stop="rightDrawer = !rightDrawer" icon>
-        <v-icon>mdi-menu</v-icon>
+
+      <v-btn v-if="!isLoggedIn" rounded color="primary" nuxt to="/connexion">
+        <v-icon left>mdi-account-circle</v-icon> Connexion
       </v-btn>
+
+      <v-menu
+        v-if="user"
+        v-model="menu"
+        :close-on-content-click="false"
+        :nudge-width="200"
+        offset-x
+      >
+        <template v-slot:activator="{ on }">
+          <v-btn v-on="on" icon>
+            <v-avatar size="30">
+              <img :src="user.photoURL" :alt="user.displayName" />
+            </v-avatar>
+          </v-btn>
+        </template>
+
+        <v-card>
+          <v-list>
+            <v-list-item>
+              <v-list-item-avatar>
+                <img :src="user.photoURL" :alt="user.displayName" />
+              </v-list-item-avatar>
+
+              <v-list-item-content>
+                <v-list-item-title>{{ user.displayName }}</v-list-item-title>
+                <v-list-item-subtitle>
+                  La team ✨
+                </v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+
+          <v-divider></v-divider>
+
+          <v-card-actions>
+            <v-btn @click="menu = false" text>Fermer</v-btn>
+            <v-spacer></v-spacer>
+            <v-btn @click="logout" outlined color="primary">
+              Déconnection
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-menu>
     </v-app-bar>
+
     <v-content>
       <v-container>
         <nuxt />
       </v-container>
     </v-content>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer :fixed="fixed" app>
-      <span>&copy; 2019</span>
-    </v-footer>
+
+    <v-bottom-navigation
+      :input-value="isLoggedIn"
+      :value="activeBtn"
+      grow
+      color="teal"
+    >
+      <v-btn @click="go('/app')">
+        <span>Accueil</span>
+        <v-icon>mdi-home</v-icon>
+      </v-btn>
+
+      <v-btn @click="go('/app/edt')">
+        <span>Planning</span>
+        <v-icon>mdi-calendar</v-icon>
+      </v-btn>
+
+      <v-btn>
+        <span>Nearby</span>
+        <v-icon>mdi-map-marker</v-icon>
+      </v-btn>
+    </v-bottom-navigation>
   </v-app>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data() {
     return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js'
+      title: 'BeFlex',
+      menu: false,
+      activeBtn: null
+    }
+  },
+  computed: {
+    ...mapGetters({
+      isLoggedIn: 'auth/isLoggedIn',
+      user: 'auth/user'
+    })
+  },
+  methods: {
+    go(path) {
+      this.$router.push({ path })
+    },
+    logout() {
+      this.$store.dispatch('auth/signOut').then(() => {
+        this.menu = false
+        this.go('/')
+        console.log('logged out 📴')
+      })
     }
   }
 }

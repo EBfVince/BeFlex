@@ -1,5 +1,5 @@
 {
-  "name": "spaceship",
+  "name": "beflex",
   "version": "1.0.0",
   "description": "My stellar Nuxt.js project",
   "author": "Vincent Guillebaud",
@@ -33,7 +33,7 @@
     "firebaseui": "^4.4.0",
     "global": "^4.4.0",
     "jwt-decode": "^2.2.0",
-    "nuxt": "^2.11.0",
+    "nuxt": "2.11.0",
     "nuxt-fire": "^3.5.4"
   },
   "devDependencies": {

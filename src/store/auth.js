@@ -53,6 +53,10 @@ export const getters = {
     } catch (err) {
       return false
     }
+  },
+
+  user: (state) => {
+    return state.user
   }
 }
 
@@ -60,8 +64,21 @@ export const actions = {
   async signIn({ commit }, firebaseAuthUser) {
     commit('seAuthUser', firebaseAuthUser)
 
+    console.log('yo')
+    try {
+      const salut = await this.$fireStore
+        .collection('yo')
+        .doc('xpBxH065qzgD4j3T7UP8')
+        .get()
+      console.log('yo 1', salut)
+    } catch (e) {
+      console.error(e)
+    }
+
     const db = new UsersDB(this.$fireStore)
+    console.log('yo 2', firebaseAuthUser.uid)
     const userFromFirebase = await db.read(firebaseAuthUser.uid)
+    console.log('yo 3', userFromFirebase)
 
     const user = isNil(userFromFirebase)
       ? await db.createUser(firebaseAuthUser)

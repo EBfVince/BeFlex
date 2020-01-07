@@ -1,40 +1,20 @@
 <template>
-  <div>
-    <client-only>
-      <p>Bonjour {{ authUser }}</p>
-      <ul>
-        <li v-for="message in messages" v-bind:key="message.id">
-          {{ message.data().name }}
-        </li>
-      </ul>
-    </client-only>
+  <div v-if="user">
+    <p class="display-1">Salut {{ user.displayName }} ☀</p>
+    <v-btn nuxt to="/app/edt">
+      EDT
+    </v-btn>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  data() {
-    return {
-      messages: []
-    }
-  },
   computed: {
-    authUser() {
-      return this.$store.state.auth.user
-    }
-  },
-  mounted() {
-    /* this.$fireStore
-      .collection('users')
-      .doc(this.authUser.id)
-      .collection('products')
-      .get()
-      .then((snap) => {
-        this.messages = []
-        snap.forEach((doc) => {
-          this.messages.push(doc)
-        })
-      }) */
+    ...mapGetters({
+      user: 'auth/user'
+    })
   },
   middleware: 'securePage'
 }
