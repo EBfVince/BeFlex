@@ -48,8 +48,25 @@ export default {
   pwa: {
     workbox: {
       /* workbox options */
+      // dev: true,
+      // workboxVersion: '5.0.0-rc.1',
+
       dev: true,
+      config: {
+        debug: true
+      },
+
       importScripts: ['firebase-auth-sw.js']
+    },
+    manifest: {
+      name: 'BeFlex 🍻',
+      short_name: 'BeFlex',
+      description: 'BeFlex : la meilleure classe depuis 1905',
+      start_url: '/',
+      display: 'standalone',
+      orientation: 'portrait',
+      background_color: '#000000',
+      theme_color: '#FFFFFF'
     }
   },
 
@@ -129,7 +146,8 @@ export default {
             }
           },
           firestore: true,
-          storage: true
+          storage: true,
+          analytics: true
         }
       }
     ]

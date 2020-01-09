@@ -6,9 +6,11 @@
           <v-btn @click="prev" fab text small color="grey darken-2">
             <v-icon small>mdi-chevron-left</v-icon>
           </v-btn>
+          <!--
           <v-btn @click="setToday" outlined class="mr-4" color="grey darken-2">
             Aujourd'hui
           </v-btn>
+          -->
           <v-btn @click="next" fab text small color="grey darken-2">
             <v-icon small>mdi-chevron-right</v-icon>
           </v-btn>
@@ -90,7 +92,7 @@ export default {
   data() {
     return {
       focus: '',
-      type: 'day',
+      type: 'week',
       typeToLabel: {
         month: 'Mois',
         week: 'Semaine',

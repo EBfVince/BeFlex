@@ -21,7 +21,8 @@
     "copy:nuxt": "xcopy \"functions\\.nuxt\\dist\\*\" \"public\\_nuxt\\\" /E /Y",
     "copy:static": "xcopy \"src\\static\\*\" \"public\\\" /E /Y",
     "start:firebase": "firebase serve --only functions,hosting",
-    "deploy": "firebase deploy --only functions,hosting"
+    "deploy": "firebase deploy --only functions,hosting",
+    "deploy:google": "gcloud app deploy app.yaml --project wfootball-ebfstudio"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
@@ -31,6 +32,7 @@
     "firebase-tools": "^7.11.0",
     "firebaseui": "^4.4.0",
     "global": "^4.4.0",
+    "is_js": "^0.9.0",
     "jwt-decode": "^2.2.0",
     "nuxt": "2.11.0",
     "nuxt-fire": "^3.5.4"

@@ -1,11 +1,12 @@
 <template>
   <div>
-    <div class="yo">
-      <v-file-input :loading="loading" v-model="file" label="File input" />
-      <v-btn :loading="loading" :disabled="file === null" @click="upload(yo)"
-        >Envoyer</v-btn
-      >
-    </div>
+    <v-file-input :loading="loading" v-model="file" label="File input" />
+    <v-btn :loading="loading" :disabled="file === null" @click="upload(yo)"
+      >Envoyer</v-btn
+    >
+
+    <v-progress-circular v-if="loading2" indeterminate></v-progress-circular>
+    <h3 v-if="cards.length === 0 && !loading2">Aucun document</h3>
 
     <v-container>
       <v-row>
@@ -43,6 +44,7 @@ export default {
     return {
       file: null,
       loading: false,
+      loading2: false,
       snackbarDisplay: false,
       snackbarText: 'null',
       cards: []
@@ -83,12 +85,17 @@ export default {
     },
     getFiles() {
       console.log('ok')
+      this.loading2 = true
       this.cards = []
       const storageRef = this.$fireStorage.ref()
       storageRef
         .child('sdc/' + this.$route.params.id)
         .listAll()
         .then((res) => {
+          if (res.items.length === 0) {
+            this.loading2 = false
+          }
+
           res.items.forEach((itemRef) => {
             itemRef
               .getMetadata()
@@ -102,10 +109,14 @@ export default {
                   e
                 )
               })
+              .finally(() => {
+                this.loading2 = false
+              })
           })
         })
         .catch((e) => {
           console.error('Erreur lors de la récupération des fichiers', e)
+          this.loading2 = false
         })
     },
     downloadFile(meta) {
