@@ -1,20 +1,20 @@
-# Spaceship 🚀🪐
+# BeFlex 🚀🪐
 
 <p align="center">
-  <img src="https://firebasestorage.googleapis.com/v0/b/bento-vince.appspot.com/o/spaceshipGithub.png?alt=media&token=eaa4013a-581e-4d68-a6a3-3b0bf66849a0"/>
+  <img src="https://firebasestorage.googleapis.com/v0/b/bento-vince.appspot.com/o/Groupe%2026.png?alt=media&token=1f0d89ba-e5b1-4a60-a55d-fc343e0e5e84"/>
 </p>
 
 <p align="center">
   <a href="https://gitmoji.carloscuesta.me/"><img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"/></a>
 </p>
 
-> Template repository for quickly creating new universal web app (SSR) with VueJs, Nuxt, and Firebase, and deploying it on Firebase Hosting within seconds 🚀
+> Le site de la meilleure classe de Digital Campus !
 
-## ✨ Demo
+## ✨ Site
 
-👉 <https://bento-vince.web.app/>
+👉 <https://beflex.best/>
 
-## ❤ This is made for you
+## ❤ Projet clés en main
 
 These libraries and tools are already setup:
 
@@ -35,11 +35,12 @@ These libraries and tools are already setup:
 
 ``` bash
 # clone Spaceship 🚀🪐 repository
-$ git clone https://github.com/EBfVince/Spaceship.git MyAwesomeProject
-$ cd MyAwesomeProject
+$ git clone https://github.com/EBfVince/BeFlex.git BeFlex
+$ cd BeFlex
 
 # install dependencies
 $ yarn
+$ npm i
 ```
 
 ### 👨‍🔧 Configuring the project
@@ -54,6 +55,7 @@ $ yarn
 ``` bash
 # serve with hot reload at localhost:3000
 $ yarn dev
+$ npm run dev
 ```
 
 ### 🔥 Serve locally with Firebase
@@ -83,7 +85,7 @@ The `[project-id]` is the project ID of your Google Cloud project.
 ``` bash
 # deploy on Firebase functions and hosting
 $ yarn build
-$ gcloud app deploy app.yaml --project [project-id]
+$ yarn deploy:google
 ```
 
 Made with ❤ by EBfStudio and Vince
