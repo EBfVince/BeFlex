@@ -59,6 +59,7 @@ export default {
     },
     openAppPage() {
       this.$router.push({
+        // path: '/creation-compte'
         path: '/app'
       })
     }

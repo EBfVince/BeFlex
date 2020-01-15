@@ -25,20 +25,138 @@
         required
       ></v-text-field>
 
-      <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
-        Validate
-      </v-btn>
+      <v-select
+        v-model="niveau"
+        :items="items"
+        :item-text="(item) => item.nom"
+        :rules="[(v) => !!v || 'Item is required']"
+        :return-object="true"
+        @change="getClasses"
+        label="Niveau"
+        required
+      ></v-select>
 
-      <v-btn color="error" class="mr-4" @click="reset">
-        Reset Form
-      </v-btn>
+      <v-select
+        v-model="classe"
+        :disabled="niveau === ''"
+        :items="items2"
+        :item-text="(yo) => yo.nom"
+        :rules="[(v) => !!v || 'Item is required']"
+        :return-object="true"
+        label="Classe"
+        required
+      ></v-select>
 
-      <v-btn color="warning" @click="resetValidation">
-        Reset Validation
+      <v-btn @click="validate" :disabled="!valid" color="success" class="mr-4">
+        Enregistrer
       </v-btn>
     </v-form>
   </div>
 </template>
+
+<script>
+import NiveauxClassesDB from '@/firebase/niveaux-classes-db'
+import NiveauxDB from '@/firebase/niveaux-db'
+
+export default {
+  data() {
+    return {
+      prenom: '',
+      nom: '',
+      niveau: '',
+      classe: '',
+      items: [],
+      items2: [],
+      items3: [], // todo option
+      valid: true
+    }
+  },
+  mounted() {
+    this.getNiveaux()
+  },
+  methods: {
+    validate() {
+      if (this.$refs.form.validate()) {
+        console.log('validate', this.prenom, this.nom, this.classe, this.niveau)
+        const userId = this.$store.getters['auth/user'].id
+        this.$fireStore
+          .collection('users')
+          .doc(userId)
+          .set(
+            {
+              prenom: this.prenom,
+              nom: this.nom,
+              classe: {
+                nom: this.classe.nom,
+                id: this.classe.id
+              },
+              niveau: {
+                nom: this.niveau.nom,
+                id: this.niveau.id
+              }
+            },
+            { merge: true }
+          )
+          .finally(() => {
+            this.$router.push({ path: '/app' })
+          })
+      }
+    },
+    getNiveaux() {
+      this.items = []
+      const db = new NiveauxDB(this.$fireStore)
+      db.readAll().then((snap) => {
+        snap.forEach((doc) => {
+          this.items.push(doc)
+        })
+      })
+      /* this.$fireStore
+        .collection('niveaux')
+        .get()
+        .then((snap) => {
+          snap.forEach((doc) => {
+            console.log('data', doc)
+            this.items.push(doc)
+          })
+        }) */
+    },
+    getClasses() {
+      this.items2 = []
+      const db = new NiveauxClassesDB(this.niveau.id, this.$fireStore)
+      db.readAll().then((yop) => {
+        yop.forEach((ok) => {
+          this.items2.push(ok)
+        })
+      })
+      /*
+      this.$fireStore
+        .collection('niveaux')
+        .where('nom', '==', this.niveau)
+        .get()
+        .then((snap) => {
+          snap.forEach((doc) => {
+            doc
+              .collection('classes')
+              .get()
+              .then((snap2) => {
+                snap2.forEach((doc2) => {
+                  this.items2.push(doc2.data())
+                })
+              })
+            doc
+              .collection('options')
+              .get()
+              .then((snap2) => {
+                snap2.forEach((doc2) => {
+                  this.items3.push(doc2.data())
+                })
+              })
+          })
+        }) */
+    }
+  }
+}
+</script>
 
 <style>
 .salut {

@@ -53,17 +53,21 @@
       >
         <template v-slot:activator="{ on }">
           <v-btn v-on="on" icon>
-            <v-avatar size="30">
+            <v-avatar v-if="user.photoURL" size="30">
               <img :src="user.photoURL" :alt="user.displayName" />
             </v-avatar>
+            <v-icon v-else>mdi-account-circle</v-icon>
           </v-btn>
         </template>
         <v-card>
           <v-list>
             <v-list-item>
-              <v-list-item-avatar>
+              <v-list-item-avatar v-if="user.photoURL">
                 <img :src="user.photoURL" :alt="user.displayName" />
               </v-list-item-avatar>
+              <v-list-item-icon v-else>
+                <v-icon>mdi-account-circle</v-icon>
+              </v-list-item-icon>
 
               <v-list-item-content>
                 <v-list-item-title>{{ user.displayName }}</v-list-item-title>
