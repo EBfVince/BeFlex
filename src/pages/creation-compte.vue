@@ -25,15 +25,15 @@
         required
       ></v-text-field>
 
-      <v-btn :disabled="!valid" color="success" class="mr-4" @click="validate">
+      <v-btn :disabled="!valid" @click="validate" color="success" class="mr-4">
         Validate
       </v-btn>
 
-      <v-btn color="error" class="mr-4" @click="reset">
+      <v-btn @click="reset" color="error" class="mr-4">
         Reset Form
       </v-btn>
 
-      <v-btn color="warning" @click="resetValidation">
+      <v-btn @click="resetValidation" color="warning">
         Reset Validation
       </v-btn>
     </v-form>
