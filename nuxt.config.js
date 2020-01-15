@@ -3,13 +3,13 @@
 // Firebase settings
 const firebaseConfig = {
   apiKey: 'AIzaSyC3qpcRaVJVT63YMfIMgNJKRsmtPmEB6VM',
-  authDomain: 'bento-vince.firebaseapp.com',
+  authDomain: 'auth.beflex.best',
   databaseURL: 'https://bento-vince.firebaseio.com',
   projectId: 'bento-vince',
   storageBucket: 'bento-vince.appspot.com',
   messagingSenderId: '419042376123',
   appId: '1:419042376123:web:f2a4223fcbff6f078b6c9e',
-  measurementId: 'todo'
+  measurementId: 'G-VL64YPQL57'
 }
 
 export default {
@@ -56,7 +56,8 @@ export default {
         debug: true
       },
 
-      importScripts: ['firebase-auth-sw.js']
+      // importScripts: ['firebase-auth-sw.js']
+      importScripts: ['salut-sw.js']
     },
     manifest: {
       name: 'BeFlex 🍻',
