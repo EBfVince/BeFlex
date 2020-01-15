@@ -56,8 +56,8 @@ export default {
         debug: true
       },
 
-      // importScripts: ['firebase-auth-sw.js']
-      importScripts: ['salut-sw.js']
+      importScripts: ['firebase-auth-sw.js']
+      // importScripts: ['salut-sw.js']
     },
     manifest: {
       name: 'BeFlex 🍻',
