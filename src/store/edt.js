@@ -122,6 +122,126 @@ function initialState() {
         color: 'indigo',
         salle: 'LISAA M 109',
         prof: 'PEPIN Emmanuel'
+      },
+
+      //
+      // Nouvelle semaine
+
+      {
+        name: 'Stratégie de contenu',
+        start: '2020-01-27 9:00',
+        end: '2020-01-27 12:30',
+        color: 'indigo',
+        salle: 'DC S 107',
+        prof: 'BERNARD Ingrid'
+      },
+      {
+        name: 'Gestion de projet',
+        start: '2020-01-27 13:30',
+        end: '2020-01-27 17:00',
+        color: 'indigo',
+        salle: 'DC S 107',
+        prof: 'AHMAD Alexandre'
+      },
+      {
+        name: 'Stratégie de contenu',
+        start: '2020-01-28 9:00',
+        end: '2020-01-28 12:30',
+        color: 'indigo',
+        salle: 'DC S 107',
+        prof: 'BERNARD Ingrid'
+      },
+      {
+        name: 'Marketing Digital',
+        start: '2020-01-28 13:30',
+        end: '2020-01-28 17:00',
+        color: 'indigo',
+        salle: 'DC S 107',
+        prof: 'VILAPLANA Katia-Maëva'
+      },
+      {
+        name: 'Anglais',
+        start: '2020-01-29 9:00',
+        end: '2020-01-29 12:30',
+        color: 'indigo',
+        salle: 'DC S 106',
+        prof: 'SIFFLET Baptiste'
+      },
+      {
+        name: 'Plan Financier',
+        start: '2020-01-29 13:30',
+        end: '2020-01-29 17:00',
+        color: 'indigo',
+        salle: 'S 116',
+        prof: 'BANCQUART François'
+      },
+
+      {
+        name: 'Spé Data',
+        start: '2020-01-30 9:00',
+        end: '2020-01-30 12:30',
+        color: 'indigo',
+        salle: 'DC S 103',
+        prof: 'STRELEZKI Laura'
+      },
+      {
+        name: 'Spé Data',
+        start: '2020-01-30 13:30',
+        end: '2020-01-30 17:00',
+        color: 'indigo',
+        salle: 'DC S 103',
+        prof: 'STRELEZKI Laura'
+      },
+
+      {
+        name: 'Spé UX',
+        start: '2020-01-30 9:00',
+        end: '2020-01-30 12:30',
+        color: 'blue',
+        salle: 'DC S 111',
+        prof: 'SCHMITT Bénédicte'
+      },
+      {
+        name: 'Spé UX',
+        start: '2020-01-30 13:30',
+        end: '2020-01-30 17:00',
+        color: 'blue',
+        salle: 'DC S 111',
+        prof: 'SCHMITT Bénédicte'
+      },
+
+      {
+        name: 'Spé Brand',
+        start: '2020-01-30 9:00',
+        end: '2020-01-30 12:30',
+        color: 'orange',
+        salle: 'S 114',
+        prof: 'BERNARD Ingrid'
+      },
+      {
+        name: 'Spé Brand',
+        start: '2020-01-30 13:30',
+        end: '2020-01-30 17:00',
+        color: 'orange',
+        salle: 'S 114',
+        prof: 'BERNARD Ingrid'
+      },
+
+      {
+        name: 'Wordpress',
+        start: '2020-01-31 9:00',
+        end: '2020-01-31 12:30',
+        color: 'indigo',
+        salle: 'S 114',
+        prof: 'ALAUX Benoit'
+      },
+      {
+        name: 'Outils Graphique et web',
+        start: '2020-01-31 13:30',
+        end: '2020-01-31 17:00',
+        color: 'indigo',
+        salle: 'S 114',
+        prof: 'PEPIN Emmanuel'
       }
     ]
   }
