@@ -5,13 +5,26 @@
 
     <h3>Rapport d'étonnement</h3>
     <ul>
-      <li>Rendu écrit : 31 Janvier</li>
+      <li>Rendu écrit : <b>31 Janvier</b></li>
+    </ul>
+    <br />
+
+    <h3>Anglais</h3>
+    <ul>
+      <li>Présentation orale : <b>11 Mars</b></li>
+    </ul>
+    <br />
+
+    <h3>Strat de Comm</h3>
+    <ul>
+      <li>Agrandissimmo : <b>26 Avril</b></li>
     </ul>
     <br />
 
     <h3>Business Plan</h3>
     <ul>
-      <li>Rendu écrit : <b>30 Mars</b></li>
+      <li>Reprendre les étapes de réalisation du BMC : <b>18 Février</b></li>
+      <li>Rendu écrit intermédiare : <b>30 Mars</b></li>
       <li>Rendu final : <b>2 Juin</b></li>
     </ul>
     <br />
