@@ -11,7 +11,7 @@ const routerBase =
     : {}
 
 export default {
-  //mode: 'universal',
+  // mode: 'universal',
   ssr: false,
   target: 'static',
   srcDir: 'src',
