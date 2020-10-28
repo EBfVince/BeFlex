@@ -1,16 +1,14 @@
 // import colors from 'vuetify/es5/util/colors'
 
-// Firebase settings
-const firebaseConfig = {
-  apiKey: 'AIzaSyC3qpcRaVJVT63YMfIMgNJKRsmtPmEB6VM',
-  authDomain: 'auth.beflex.best',
-  databaseURL: 'https://bento-vince.firebaseio.com',
-  projectId: 'bento-vince',
-  storageBucket: 'bento-vince.appspot.com',
-  messagingSenderId: '419042376123',
-  appId: '1:419042376123:web:f2a4223fcbff6f078b6c9e',
-  measurementId: 'G-VL64YPQL57'
-}
+// ajouter seulement `router.base = '/BeFlex/'` si `DEPLOY_ENV` est `GH_PAGES`
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+        router: {
+          base: '/BeFlex/',
+        },
+      }
+    : {}
 
 export default {
   //mode: 'universal',
@@ -25,7 +23,7 @@ export default {
    */
   server: {
     // port: 8000, // par défaut: 3000
-    host: '192.168.1.98' // par défaut: localhost
+    // host: '192.168.1.98' // par défaut: localhost
   },
 
   vue: {
@@ -42,6 +40,8 @@ export default {
       }
     }
   },
+
+  ...routerBase,
 
   /**
    * Permet de configurer la librairie PWA
