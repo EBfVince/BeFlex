@@ -33,8 +33,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
   data() {
     return {
@@ -66,7 +64,8 @@ export default {
         {
           url: '',
           titre: 'Dossiers de la classe 🤪',
-          src: 'https://shorturl.at/bvHMN',
+          src:
+            'https://images.unsplash.com/photo-1603897251460-7fb99b261610?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80',
           open:
             'https://drive.google.com/open?id=157F7ZPv3c8tQEsSdg1YZAzE8aJMPrNIe'
         }
@@ -74,9 +73,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      user: 'auth/user'
-    })
+    user() {
+      return this.$store.state.auth.authUser
+    }
   },
   methods: {
     openInNewTab(open) {

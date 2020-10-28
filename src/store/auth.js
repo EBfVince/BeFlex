@@ -1,10 +1,6 @@
-import { isNil } from 'lodash'
-import UsersDB from '@/firebase/users-db'
-
 function initialState() {
   return {
-    authUser: null,
-    user: null
+    authUser: null
   }
 }
 
@@ -26,19 +22,12 @@ export const mutations = {
   /**
    * Permet de set les infos du authUser dans le state
    */
-  seAuthUser(state, authUser) {
+  setAuthUser(state, authUser) {
     state.authUser = {
       uid: authUser.uid,
-      email: authUser.email
-    }
-  },
-
-  setUser(state, user) {
-    state.user = {
-      id: user.id,
-      email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL
+      email: authUser.email,
+      displayName: authUser.displayName,
+      photoURL: authUser.photoURL
     }
   }
 }
@@ -49,29 +38,18 @@ export const getters = {
    */
   isLoggedIn: (state) => {
     try {
-      return state.authUser.id !== null
+      return state.authUser.uid !== null
     } catch (err) {
       return false
     }
-  },
-
-  user: (state) => {
-    return state.user
   }
 }
 
 export const actions = {
-  async signIn({ commit }, firebaseAuthUser) {
-    commit('seAuthUser', firebaseAuthUser)
-
-    const db = new UsersDB(this.$fireStore)
-    const userFromFirebase = await db.read(firebaseAuthUser.uid)
-
-    const user = isNil(userFromFirebase)
-      ? await db.createUser(firebaseAuthUser)
-      : userFromFirebase
-
-    commit('setUser', user)
+  signIn({ commit, dispatch }, { authUser, claims }) {
+    console.log(authUser)
+    commit('setAuthUser', authUser)
+    // await dispatch('user/loadUser', null, { root: true })
   },
 
   /**

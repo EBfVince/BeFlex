@@ -13,16 +13,19 @@ const firebaseConfig = {
 }
 
 export default {
-  mode: 'universal',
+  //mode: 'universal',
+  ssr: false,
+  target: 'static',
   srcDir: 'src',
-  buildDir: 'functions/.nuxt',
+
+  // buildDir: 'functions/.nuxt',
 
   /*
    ** Permet de définir l'adresse du serveur en local
    */
   server: {
     // port: 8000, // par défaut: 3000
-    // host: '0.0.0.0' // par défaut: localhost
+    host: '192.168.1.98' // par défaut: localhost
   },
 
   vue: {
@@ -51,12 +54,12 @@ export default {
       // dev: true,
       // workboxVersion: '5.0.0-rc.1',
 
-      dev: true,
+      /* dev: true,
       config: {
         debug: true
-      },
+      }, */
 
-      importScripts: ['firebase-auth-sw.js']
+      // importScripts: ['firebase-auth-sw.js']
       // importScripts: ['salut-sw.js']
     },
     manifest: {
@@ -125,33 +128,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    [
-      'nuxt-fire',
-      {
-        config: {
-          apiKey: firebaseConfig.apiKey,
-          authDomain: firebaseConfig.authDomain,
-          databaseURL: firebaseConfig.databaseURL,
-          projectId: firebaseConfig.projectId,
-          storageBucket: firebaseConfig.storageBucket,
-          messagingSenderId: firebaseConfig.messagingSenderId,
-          appId: firebaseConfig.appId,
-          measurementId: firebaseConfig.measurementId
-        },
-        services: {
-          auth: {
-            // Experimental Feature, use with caution.
-            initialize: {
-              onSuccessAction: 'handleSuccessfulAuthentication',
-              ssr: true
-            }
-          },
-          firestore: true,
-          storage: true,
-          analytics: true
-        }
-      }
-    ]
+    '@nuxtjs/firebase',
   ],
 
   /*
@@ -195,7 +172,36 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extractCSS: true,
-    extend(config, ctx) {}
-  }
+    // extractCSS: true,
+    // extend(config, ctx) {}
+  },
+
+  /*
+   ** Nuxt Firebase configuration
+   ** https://firebase.nuxtjs.org/
+   */
+  firebase: {
+    config: {
+      apiKey: 'AIzaSyC3qpcRaVJVT63YMfIMgNJKRsmtPmEB6VM',
+      authDomain: 'bento-vince.firebaseapp.com',
+      databaseURL: 'https://bento-vince.firebaseio.com',
+      projectId: 'bento-vince',
+      storageBucket: 'bento-vince.appspot.com',
+      messagingSenderId: '419042376123',
+      appId: '1:419042376123:web:f2a4223fcbff6f078b6c9e',
+      measurementId: 'G-VL64YPQL57',
+    },
+    services: {
+      auth: {
+        // Experimental Feature, use with caution.
+        initialize: {
+          onAuthStateChangedAction: 'onAuthStateChangedMutation',
+        },
+        ssr: false,
+      },
+      firestore: true,
+      storage: true,
+      analytics: true
+    },
+  },
 }

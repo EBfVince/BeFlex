@@ -24,7 +24,7 @@
             <v-list-item>
               <v-list-item-avatar>
                 <img
-                  src="https://scontent.fcdg1-1.fna.fbcdn.net/v/t1.0-1/73399922_1625162904292464_7710667323794784256_o.jpg?_nc_cat=100&_nc_ohc=dScHy39vwwoAX93Z2nK&_nc_ht=scontent.fcdg1-1.fna&oh=b178e610fadd6d6ddda29b64a7137775&oe=5E8FCC26"
+                  src="https://scontent-mrs2-1.xx.fbcdn.net/v/t1.0-1/p200x200/73399922_1625162904292464_7710667323794784256_o.jpg?_nc_cat=100&ccb=2&_nc_sid=7206a8&_nc_ohc=0fFBiYwoL-QAX_00YsG&_nc_ht=scontent-mrs2-1.xx&tp=6&oh=fc00a0687f48922fd6f39f9324bec3c0&oe=5FBF4ED5"
                   alt="Antho"
                 />
               </v-list-item-avatar>
@@ -40,8 +40,15 @@
         </v-card>
       </v-menu>
 
-      <v-btn v-if="!isLoggedIn" rounded color="primary" nuxt to="/connexion">
-        <v-icon left>mdi-account-circle</v-icon> Connexion
+      <v-btn
+        id="plopy"
+        v-if="!isLoggedIn"
+        rounded
+        color="primary"
+        nuxt
+        to="/connexion"
+      >
+        <v-icon left>mdi-account-circle</v-icon>Connexion
       </v-btn>
 
       <v-menu
@@ -87,11 +94,11 @@
       </v-menu>
     </v-app-bar>
 
-    <v-content>
+    <v-main>
       <v-container>
         <nuxt />
       </v-container>
-    </v-content>
+    </v-main>
 
     <v-bottom-navigation
       :input-value="isLoggedIn"
@@ -134,9 +141,11 @@ export default {
   },
   computed: {
     ...mapGetters({
-      isLoggedIn: 'auth/isLoggedIn',
-      user: 'auth/user'
-    })
+      isLoggedIn: 'auth/isLoggedIn'
+    }),
+    user() {
+      return this.$store.state.auth.authUser
+    }
   },
   methods: {
     go(path) {

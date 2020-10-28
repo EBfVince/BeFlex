@@ -5,7 +5,7 @@
       src="https://firebasestorage.googleapis.com/v0/b/bento-vince.appspot.com/o/Groupe%2026.png?alt=media&token=1f0d89ba-e5b1-4a60-a55d-fc343e0e5e84"
       width="250px"
     />
-    <v-btn class="mt-12" rounded color="primary" nuxt to="/app">
+    <v-btn id="decouvrir" class="mt-12" rounded color="primary" nuxt to="/app">
       Découvrir 🚀
     </v-btn>
     <img
