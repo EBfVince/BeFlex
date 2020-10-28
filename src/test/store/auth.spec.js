@@ -4,7 +4,7 @@ describe('state', () => {
   test('initial state', () => {
     // expected initial state
     const s = {
-      authUser: null,
+      authUser: null
     }
     expect(state()).toEqual(s)
   })

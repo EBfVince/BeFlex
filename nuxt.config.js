@@ -5,8 +5,8 @@ const routerBase =
   process.env.DEPLOY_ENV === 'GH_PAGES'
     ? {
         router: {
-          base: '/BeFlex/',
-        },
+          base: '/BeFlex/'
+        }
       }
     : {}
 
@@ -53,12 +53,10 @@ export default {
       /* workbox options */
       // dev: true,
       // workboxVersion: '5.0.0-rc.1',
-
       /* dev: true,
       config: {
         debug: true
       }, */
-
       // importScripts: ['firebase-auth-sw.js']
       // importScripts: ['salut-sw.js']
     },
@@ -128,7 +126,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/firebase',
+    '@nuxtjs/firebase'
   ],
 
   /*
@@ -189,19 +187,19 @@ export default {
       storageBucket: 'bento-vince.appspot.com',
       messagingSenderId: '419042376123',
       appId: '1:419042376123:web:f2a4223fcbff6f078b6c9e',
-      measurementId: 'G-VL64YPQL57',
+      measurementId: 'G-VL64YPQL57'
     },
     services: {
       auth: {
         // Experimental Feature, use with caution.
         initialize: {
-          onAuthStateChangedAction: 'onAuthStateChangedMutation',
+          onAuthStateChangedAction: 'onAuthStateChangedMutation'
         },
-        ssr: false,
+        ssr: false
       },
       firestore: true,
       storage: true,
       analytics: true
-    },
-  },
+    }
+  }
 }
