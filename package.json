@@ -22,7 +22,10 @@
     "copy:static": "xcopy \"src\\static\\*\" \"public\\\" /E /Y",
     "start:firebase": "firebase serve --only functions,hosting",
     "deploy": "firebase deploy --only functions,hosting",
-    "deploy:google": "gcloud app deploy app.yaml --project wfootball-ebfstudio"
+    "deploy:google": "gcloud app deploy app.yaml --project wfootball-ebfstudio",
+    "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt-ts build",
+    "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt-ts generate",
+    "deploy2": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
