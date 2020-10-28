@@ -34,13 +34,8 @@ const factory = (isLoggedIn) => {
 }
 
 describe('Connection / deconnection button', () => {
-  test('connection', () => {
-    const wrapper = factory(true)
-    expect(wrapper.find('.btnLoginOut').text()).toEqual('Déconnexion')
-  })
-
-  test('logout', () => {
+  test('plop', () => {
     const wrapper = factory(false)
-    expect(wrapper.find('.btnLoginOut').text()).toEqual('Connexion')
+    expect(wrapper.find('#decouvrir').text()).toEqual('Découvrir 🚀')
   })
 })

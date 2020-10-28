@@ -5,7 +5,6 @@ describe('state', () => {
     // expected initial state
     const s = {
       authUser: null,
-      user: null
     }
     expect(state()).toEqual(s)
   })
@@ -15,39 +14,40 @@ describe('mutations', () => {
   test('resetStore -> auth user must be null', () => {
     // mock state
     const state = {
-      user: {
+      authUser: {
         uid: 'uid',
-        email: 'email'
+        email: 'email',
+        photoURL: 'yop'
       }
     }
     // apply mutation
     mutations.resetStore(state)
     // assert result
-    expect(state.user).toBeNull()
+    expect(state.authUser).toBeNull()
   })
 
   test('setUser in the state', () => {
     // mock state
     const state = {
-      user: null
+      authUser: null
     }
     // apply mutation
     const u = {
-      id: 'uid',
+      uid: 'uid',
       email: 'email',
       displayName: 'Jean Bon',
       photoURL: 'url',
       autre: 'autre'
     }
-    mutations.setUser(state, u)
+    mutations.setAuthUser(state, u)
     // assert result
     const expected = {
-      id: 'uid',
+      uid: 'uid',
       email: 'email',
       displayName: 'Jean Bon',
       photoURL: 'url'
     }
-    expect(state.user).toEqual(expected)
+    expect(state.authUser).toEqual(expected)
   })
 })
 
