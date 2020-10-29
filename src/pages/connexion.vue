@@ -21,7 +21,7 @@ li {
 </style>
 
 <script>
-import FirebaseUi from '~/components/FirebaseUi.vue'
+import FirebaseUi from '~/components/FirebaseUi'
 
 export default {
   name: 'Login',
