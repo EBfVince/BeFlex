@@ -95,7 +95,7 @@ export default {
    */
   plugins: [],
 
-  components: true,
+  components: false,
 
   /*
    ** Nuxt.js dev-modules
