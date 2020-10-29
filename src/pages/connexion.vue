@@ -8,9 +8,7 @@
       ></v-img>
       <v-card-title class="title">Connectez vous</v-card-title>
     </v-card>
-    <client-only>
-      <FirebaseUI class="mt-12" />
-    </client-only>
+    <firebase-login class="mt-12" />
   </div>
 </template>
 
@@ -21,12 +19,12 @@ li {
 </style>
 
 <script>
-import FirebaseUI from '~/components/FirebaseUI'
+import FirebaseLogin from '~/components/FirebaseLogin.vue'
 
 export default {
-  name: 'Login',
+  // name: 'Login',
   components: {
-    FirebaseUI,
+    FirebaseLogin,
   },
 }
 </script>
