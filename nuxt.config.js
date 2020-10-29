@@ -14,7 +14,7 @@ export default {
   // mode: 'universal',
   ssr: false,
   target: 'static',
-  srcDir: 'src',
+  srcDir: 'src/',
 
   // buildDir: 'functions/.nuxt',
 
@@ -24,21 +24,6 @@ export default {
   server: {
     // port: 8000, // par défaut: 3000
     // host: '192.168.1.98' // par défaut: localhost
-  },
-
-  vue: {
-    config: {
-      warnHandler: (msg, vm, trace) => {
-        if (
-          msg ===
-          'The .native modifier for v-on is only valid on components but it was used on <div>.'
-        ) {
-          msg = null
-          vm = null
-          trace = null
-        }
-      }
-    }
   },
 
   ...routerBase,
