@@ -7,7 +7,7 @@ const express = require('express')
 const app = express()
 
 const config = {
-  dev: false
+  dev: false,
 }
 
 const nuxt = new Nuxt(config)
@@ -47,7 +47,7 @@ async function handleRequest(req, res) {
       // Reproduce attributes of "official" authUser object
       uid: decodedAuthUser.user_id,
       email: decodedAuthUser.email,
-      emailVerified: decodedAuthUser.email_verified
+      emailVerified: decodedAuthUser.email_verified,
     }
 
     // Try to verify the id token:

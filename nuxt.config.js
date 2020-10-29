@@ -5,8 +5,8 @@ const routerBase =
   process.env.DEPLOY_ENV === 'GH_PAGES'
     ? {
         router: {
-          base: '/BeFlex/'
-        }
+          base: '/BeFlex/',
+        },
       }
     : {}
 
@@ -53,8 +53,8 @@ export default {
       display: 'standalone',
       orientation: 'portrait',
       background_color: '#000000',
-      theme_color: '#FFFFFF'
-    }
+      theme_color: '#FFFFFF',
+    },
   },
 
   /*
@@ -69,10 +69,10 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
   /*
@@ -101,7 +101,7 @@ export default {
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
   ],
 
   /*
@@ -111,7 +111,7 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/firebase'
+    '@nuxtjs/firebase',
   ],
 
   /*
@@ -139,7 +139,7 @@ export default {
           success: colors.green.accent3
         }
       } */
-    }
+    },
   },
 
   /**
@@ -172,19 +172,19 @@ export default {
       storageBucket: 'bento-vince.appspot.com',
       messagingSenderId: '419042376123',
       appId: '1:419042376123:web:f2a4223fcbff6f078b6c9e',
-      measurementId: 'G-VL64YPQL57'
+      measurementId: 'G-VL64YPQL57',
     },
     services: {
       auth: {
         // Experimental Feature, use with caution.
         initialize: {
-          onAuthStateChangedAction: 'onAuthStateChangedMutation'
+          onAuthStateChangedAction: 'onAuthStateChangedMutation',
         },
-        ssr: false
+        ssr: false,
       },
       firestore: true,
       storage: true,
-      analytics: true
-    }
-  }
+      analytics: true,
+    },
+  },
 }

@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar fixed app>
-      <v-toolbar-title v-text="title" @click="go('/')" />
+      <v-toolbar-title @click="go('/')" v-text="title" />
       <v-spacer />
 
       <v-menu
@@ -12,7 +12,7 @@
         offset-x
       >
         <template v-slot:activator="{ on }">
-          <v-btn v-on="on" @click="notif" icon>
+          <v-btn icon v-on="on" @click="notif">
             <v-badge :value="badge" offset-x="6" offset-y="6" color="pink" dot>
               <v-icon>mdi-bell</v-icon>
             </v-badge>
@@ -31,9 +31,7 @@
 
               <v-list-item-content>
                 <v-list-item-title>Antho paye sa tournée 🍻</v-list-item-title>
-                <v-list-item-subtitle>
-                  Merci mec 👌
-                </v-list-item-subtitle>
+                <v-list-item-subtitle> Merci mec 👌 </v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -41,8 +39,8 @@
       </v-menu>
 
       <v-btn
-        id="plopy"
         v-if="!isLoggedIn"
+        id="plopy"
         rounded
         color="primary"
         nuxt
@@ -59,7 +57,7 @@
         offset-x
       >
         <template v-slot:activator="{ on }">
-          <v-btn v-on="on" icon>
+          <v-btn icon v-on="on">
             <v-avatar size="30">
               <img :src="user.photoURL" :alt="user.displayName" />
             </v-avatar>
@@ -74,9 +72,7 @@
 
               <v-list-item-content>
                 <v-list-item-title>{{ user.displayName }}</v-list-item-title>
-                <v-list-item-subtitle>
-                  La team ✨
-                </v-list-item-subtitle>
+                <v-list-item-subtitle> La team ✨ </v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -84,9 +80,9 @@
           <v-divider></v-divider>
 
           <v-card-actions>
-            <v-btn @click="menu = false" text>Fermer</v-btn>
+            <v-btn text @click="menu = false">Fermer</v-btn>
             <v-spacer></v-spacer>
-            <v-btn @click="logout" outlined color="primary">
+            <v-btn outlined color="primary" @click="logout">
               Déconnection
             </v-btn>
           </v-card-actions>
@@ -108,17 +104,17 @@
       color="teal"
       fixed
     >
-      <v-btn @click="go('/app')" style="height:100%;">
+      <v-btn style="height: 100%" @click="go('/app')">
         <span>Accueil</span>
         <v-icon>mdi-firebase</v-icon>
       </v-btn>
 
-      <v-btn @click="go('/app/emploi-du-temps')" style="height:100%;">
+      <v-btn style="height: 100%" @click="go('/app/emploi-du-temps')">
         <span>Planning</span>
         <v-icon>mdi-calendar</v-icon>
       </v-btn>
 
-      <v-btn @click="go('/app/supports-de-cours')" style="height:100%;">
+      <v-btn style="height: 100%" @click="go('/app/supports-de-cours')">
         <span>Cours</span>
         <v-icon>mdi-book-open-page-variant</v-icon>
       </v-btn>
@@ -136,16 +132,16 @@ export default {
       menu: false,
       menu2: false,
       badge: true,
-      activeBtn: null
+      activeBtn: null,
     }
   },
   computed: {
     ...mapGetters({
-      isLoggedIn: 'auth/isLoggedIn'
+      isLoggedIn: 'auth/isLoggedIn',
     }),
     user() {
       return this.$store.state.auth.authUser
-    }
+    },
   },
   methods: {
     go(path) {
@@ -160,8 +156,8 @@ export default {
     },
     notif() {
       this.badge = false
-    }
-  }
+    },
+  },
 }
 </script>
 

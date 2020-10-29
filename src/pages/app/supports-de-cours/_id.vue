@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-file-input :loading="loading" v-model="file" label="File input" />
+    <v-file-input v-model="file" :loading="loading" label="File input" />
     <v-btn :loading="loading" :disabled="file === null" @click="upload(yo)"
       >Envoyer</v-btn
     >
@@ -11,16 +11,16 @@
     <v-container>
       <v-row>
         <v-col v-for="card in cards" :key="card.title" class="d-flex" cols="12">
-          <v-card @click="downloadFile(card)" class="flex-grow-1" ripple>
+          <v-card class="flex-grow-1" ripple @click="downloadFile(card)">
             <v-card-text>
               <v-icon>mdi-xbox-controller</v-icon> {{ card.name }}
             </v-card-text>
           </v-card>
           <v-btn
-            @click="deleteFile(card)"
             icon
             color="red"
             class="align-self-center ml-2"
+            @click="deleteFile(card)"
           >
             <v-icon>mdi-delete</v-icon>
           </v-btn>
@@ -31,9 +31,7 @@
     <!-- Snackbar -->
     <v-snackbar v-model="snackbarDisplay">
       {{ snackbarText }}
-      <v-btn @click="snackbarDisplay = false" color="pink" text>
-        Fermer
-      </v-btn>
+      <v-btn color="pink" text @click="snackbarDisplay = false"> Fermer </v-btn>
     </v-snackbar>
   </div>
 </template>
@@ -47,7 +45,7 @@ export default {
       loading2: false,
       snackbarDisplay: false,
       snackbarText: 'null',
-      cards: []
+      cards: [],
     }
   },
   mounted() {
@@ -139,8 +137,8 @@ export default {
         .finally(() => {
           this.getFiles()
         })
-    }
-  }
+    },
+  },
 }
 </script>
 

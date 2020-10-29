@@ -13,7 +13,7 @@ export default class UsersDB extends GenericDB {
     const user = {
       displayName,
       photoURL,
-      email
+      email,
     }
     return super.create(user, firebaseAuthUser.uid)
   }

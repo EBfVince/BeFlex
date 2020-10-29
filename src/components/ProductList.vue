@@ -11,8 +11,8 @@
       :is-product-deletion-pending="isProductDeletionPending(product.id)"
       :disable-actions="!networkOnLine"
       :data="product"
-      @deleteProduct="deleteUserProduct"
       class="product-row"
+      @deleteProduct="deleteUserProduct"
     ></product-item>
   </div>
 </template>
@@ -25,9 +25,9 @@ export default {
   computed: {
     ...mapGetters('products', ['isProductDeletionPending']),
     ...mapState('products', ['products']),
-    ...mapState('app', ['networkOnLine'])
+    ...mapState('app', ['networkOnLine']),
   },
-  methods: mapActions('products', ['deleteUserProduct'])
+  methods: mapActions('products', ['deleteUserProduct']),
 }
 </script>
 

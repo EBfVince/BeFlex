@@ -26,7 +26,7 @@ import FirebaseUi from '~/components/FirebaseUi'
 export default {
   name: 'Login',
   components: {
-    FirebaseUi
-  }
+    FirebaseUi,
+  },
 }
 </script>

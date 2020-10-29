@@ -12,24 +12,24 @@ const factory = (isLoggedIn) => {
   localVue.use(Vuetify)
 
   const getters = {
-    isLoggedIn: () => isLoggedIn
+    isLoggedIn: () => isLoggedIn,
   }
   const actions = {
-    signOut: jest.fn()
+    signOut: jest.fn(),
   }
   const store = new Vuex.Store({
     modules: {
       auth: {
         namespaced: true,
         actions,
-        getters
-      }
-    }
+        getters,
+      },
+    },
   })
 
   return shallowMount(Index, {
     localVue,
-    store
+    store,
   })
 }
 

@@ -4,7 +4,7 @@ describe('state', () => {
   test('initial state', () => {
     // expected initial state
     const s = {
-      authUser: null
+      authUser: null,
     }
     expect(state()).toEqual(s)
   })
@@ -17,8 +17,8 @@ describe('mutations', () => {
       authUser: {
         uid: 'uid',
         email: 'email',
-        photoURL: 'yop'
-      }
+        photoURL: 'yop',
+      },
     }
     // apply mutation
     mutations.resetStore(state)
@@ -29,7 +29,7 @@ describe('mutations', () => {
   test('setUser in the state', () => {
     // mock state
     const state = {
-      authUser: null
+      authUser: null,
     }
     // apply mutation
     const u = {
@@ -37,7 +37,7 @@ describe('mutations', () => {
       email: 'email',
       displayName: 'Jean Bon',
       photoURL: 'url',
-      autre: 'autre'
+      autre: 'autre',
     }
     mutations.setAuthUser(state, u)
     // assert result
@@ -45,7 +45,7 @@ describe('mutations', () => {
       uid: 'uid',
       email: 'email',
       displayName: 'Jean Bon',
-      photoURL: 'url'
+      photoURL: 'url',
     }
     expect(state.authUser).toEqual(expected)
   })
@@ -55,7 +55,7 @@ describe('getters', () => {
   test('isLoggedIn user not set', () => {
     // mock state
     const state = {
-      user: null
+      user: null,
     }
     // mock getter
     const isLog = getters.isLoggedIn(state)
@@ -68,8 +68,8 @@ describe('getters', () => {
     const state = {
       authUser: {
         uid: 'uid',
-        email: 'email'
-      }
+        email: 'email',
+      },
     }
     // mock getter
     const isLog = getters.isLoggedIn(state)
@@ -89,7 +89,7 @@ describe('actions', () => {
         return new Promise((resolve) => {
           resolve('resolved')
         })
-      }
+      },
     }
     // run
     await actions.signOut({ commit })
@@ -104,13 +104,15 @@ describe('actions', () => {
     const error = { message: 'Test bro', code: 42 }
     actions.$fireAuth = {
       signOut() {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         return new Promise((resolve) => {
           // eslint-disable-next-line no-throw-literal
           throw error
         })
-      }
+      },
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     global.console.error = (p1, p2) => {
       expect(p1).toBe('Erreur')
     }

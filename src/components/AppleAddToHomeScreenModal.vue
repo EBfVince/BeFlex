@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="modal-wrapper">
-      <div @click="$emit('close')" class="close"></div>
+      <div class="close" @click="$emit('close')"></div>
       <div class="main-content">
         <img class="app-logo" src="@/assets/logo.png" />
         <h3 class="title">Install {{ appTitle }}</h3>
@@ -25,7 +25,7 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-  computed: mapState('app', ['appTitle'])
+  computed: mapState('app', ['appTitle']),
 }
 </script>
 

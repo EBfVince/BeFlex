@@ -16,16 +16,16 @@ export default {
   props: {
     inscription: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
-      loading: true
+      loading: true,
     }
   },
   computed: mapState({
-    authUser: (state) => state.auth.authUser
+    authUser: (state) => state.auth.authUser,
   }),
   watch: {
     authUser(slt) {
@@ -33,7 +33,7 @@ export default {
       if (slt !== null) {
         this.openAppPage()
       }
-    }
+    },
   },
   mounted() {
     if (process.browser) {
@@ -44,7 +44,7 @@ export default {
         new firebaseui.auth.AuthUI(this.$fireAuth)
       const authProviders = {
         Google: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        Email: firebase.auth.EmailAuthProvider.PROVIDER_ID
+        Email: firebase.auth.EmailAuthProvider.PROVIDER_ID,
       }
       // Firebase signin with popup is faster than redirect
       // but we can't use it on mobile because it's not well supported
@@ -59,8 +59,8 @@ export default {
         callbacks: {
           signInSuccessWithAuthResult: this.signInResult,
           signInFailure: this.signInError,
-          uiShown: this.uiShown
-        }
+          uiShown: this.uiShown,
+        },
       }
       ui.disableAutoSignIn()
       if (this.authUser) {
@@ -71,6 +71,7 @@ export default {
     }
   },
   methods: {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     signInResult(authResult, redirectUrl) {
       // this.openAppPage()
       this.loading = true
@@ -87,10 +88,10 @@ export default {
     },
     openAppPage() {
       this.$router.push({
-        path: '/app'
+        path: '/app',
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

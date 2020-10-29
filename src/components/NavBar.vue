@@ -15,8 +15,8 @@
         </div>
         <div
           v-if="isUserLoggedIn && networkOnLine"
-          @click="logout"
           class="nav-item logout-item"
+          @click="logout"
         >
           <a>Logout</a>
         </div>
@@ -40,13 +40,13 @@ export default {
   computed: {
     ...mapGetters('authentication', ['isUserLoggedIn']),
     ...mapState('authentication', ['user']),
-    ...mapState('app', ['networkOnLine', 'appTitle', 'appShortTitle'])
+    ...mapState('app', ['networkOnLine', 'appTitle', 'appShortTitle']),
   },
   methods: {
     async logout() {
       await firebase.auth().signOut()
-    }
-  }
+    },
+  },
 }
 </script>
 

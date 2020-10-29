@@ -7,7 +7,7 @@ function initialState() {
         end: '2020-01-06 12:30',
         color: 'indigo',
         salle: 'S 106',
-        prof: 'SAILHAN Virginie'
+        prof: 'SAILHAN Virginie',
       },
       {
         name: 'Stratégie de Communication',
@@ -15,7 +15,7 @@ function initialState() {
         end: '2020-01-06 17:00',
         color: 'indigo',
         salle: 'S 106',
-        prof: 'BASTIDE Marie'
+        prof: 'BASTIDE Marie',
       },
 
       {
@@ -24,7 +24,7 @@ function initialState() {
         end: '2020-01-07 12:30',
         color: 'indigo',
         salle: 'S 112',
-        prof: 'GARCIA Alexandre'
+        prof: 'GARCIA Alexandre',
       },
       {
         name: 'DC Meet Plan Financier',
@@ -32,7 +32,7 @@ function initialState() {
         end: '2020-01-07 17:00',
         color: 'indigo',
         salle: 'S 112',
-        prof: 'BANCQUART François'
+        prof: 'BANCQUART François',
       },
 
       {
@@ -41,7 +41,7 @@ function initialState() {
         end: '2020-01-08 12:30',
         color: 'indigo',
         salle: 'S 106',
-        prof: 'VILAPLANA Katia-Maëva'
+        prof: 'VILAPLANA Katia-Maëva',
       },
       {
         name: 'Culture Digitale',
@@ -49,13 +49,13 @@ function initialState() {
         end: '2020-01-08 17:00',
         color: 'indigo',
         salle: 'S 116',
-        prof: 'BONNEMAINS CAROLE'
+        prof: 'BONNEMAINS CAROLE',
       },
       {
         name: 'Réunion Evaluation Qualité',
         start: '2020-01-08 17:00',
         end: '2020-01-08 18:00',
-        color: 'indigo'
+        color: 'indigo',
       },
 
       {
@@ -64,7 +64,7 @@ function initialState() {
         end: '2020-01-09 12:30',
         color: 'indigo',
         salle: 'S 111',
-        prof: 'OTTAVIANONI Guillaume'
+        prof: 'OTTAVIANONI Guillaume',
       },
       {
         name: 'Spé UX',
@@ -72,7 +72,7 @@ function initialState() {
         end: '2020-01-09 12:30',
         color: 'blue',
         salle: 'S 113',
-        prof: 'SCHMITT Bénédicte'
+        prof: 'SCHMITT Bénédicte',
       },
       {
         name: 'Spé Brand',
@@ -80,7 +80,7 @@ function initialState() {
         end: '2020-01-09 13:00',
         color: 'orange',
         salle: 'S 104',
-        prof: 'BERNARD Ingrid'
+        prof: 'BERNARD Ingrid',
       },
       {
         name: 'Spé Data',
@@ -88,7 +88,7 @@ function initialState() {
         end: '2020-01-09 17:00',
         color: 'indigo',
         salle: 'S 111',
-        prof: 'OTTAVIANONI Guillaume'
+        prof: 'OTTAVIANONI Guillaume',
       },
       {
         name: 'Spé UX',
@@ -96,7 +96,7 @@ function initialState() {
         end: '2020-01-09 17:00',
         color: 'blue',
         salle: 'S 113',
-        prof: 'SCHMITT Bénédicte'
+        prof: 'SCHMITT Bénédicte',
       },
       {
         name: 'Spé Brand',
@@ -104,7 +104,7 @@ function initialState() {
         end: '2020-01-09 17:00',
         color: 'orange',
         salle: 'S 104',
-        prof: 'BERNARD Ingrid'
+        prof: 'BERNARD Ingrid',
       },
 
       {
@@ -113,7 +113,7 @@ function initialState() {
         end: '2020-01-10 12:30',
         color: 'indigo',
         salle: 'S 219',
-        prof: 'ALAUX Benoit'
+        prof: 'ALAUX Benoit',
       },
       {
         name: 'Outils Graphiques et Web',
@@ -121,7 +121,7 @@ function initialState() {
         end: '2020-01-10 17:00',
         color: 'indigo',
         salle: 'LISAA M 109',
-        prof: 'PEPIN Emmanuel'
+        prof: 'PEPIN Emmanuel',
       },
 
       //
@@ -133,7 +133,7 @@ function initialState() {
         end: '2020-01-27 12:30',
         color: 'indigo',
         salle: 'DC S 107',
-        prof: 'BERNARD Ingrid'
+        prof: 'BERNARD Ingrid',
       },
       {
         name: 'Gestion de projet',
@@ -141,7 +141,7 @@ function initialState() {
         end: '2020-01-27 17:00',
         color: 'indigo',
         salle: 'DC S 107',
-        prof: 'AHMAD Alexandre'
+        prof: 'AHMAD Alexandre',
       },
       {
         name: 'Stratégie de contenu',
@@ -149,7 +149,7 @@ function initialState() {
         end: '2020-01-28 12:30',
         color: 'indigo',
         salle: 'DC S 107',
-        prof: 'BERNARD Ingrid'
+        prof: 'BERNARD Ingrid',
       },
       {
         name: 'Marketing Digital',
@@ -157,7 +157,7 @@ function initialState() {
         end: '2020-01-28 17:00',
         color: 'indigo',
         salle: 'DC S 107',
-        prof: 'VILAPLANA Katia-Maëva'
+        prof: 'VILAPLANA Katia-Maëva',
       },
       {
         name: 'Anglais',
@@ -165,7 +165,7 @@ function initialState() {
         end: '2020-01-29 12:30',
         color: 'indigo',
         salle: 'DC S 106',
-        prof: 'SIFFLET Baptiste'
+        prof: 'SIFFLET Baptiste',
       },
       {
         name: 'Plan Financier',
@@ -173,7 +173,7 @@ function initialState() {
         end: '2020-01-29 17:00',
         color: 'indigo',
         salle: 'S 116',
-        prof: 'BANCQUART François'
+        prof: 'BANCQUART François',
       },
 
       {
@@ -182,7 +182,7 @@ function initialState() {
         end: '2020-01-30 12:30',
         color: 'indigo',
         salle: 'DC S 103',
-        prof: 'STRELEZKI Laura'
+        prof: 'STRELEZKI Laura',
       },
       {
         name: 'Spé Data',
@@ -190,7 +190,7 @@ function initialState() {
         end: '2020-01-30 17:00',
         color: 'indigo',
         salle: 'DC S 103',
-        prof: 'STRELEZKI Laura'
+        prof: 'STRELEZKI Laura',
       },
 
       {
@@ -199,7 +199,7 @@ function initialState() {
         end: '2020-01-30 12:30',
         color: 'blue',
         salle: 'DC S 111',
-        prof: 'SCHMITT Bénédicte'
+        prof: 'SCHMITT Bénédicte',
       },
       {
         name: 'Spé UX',
@@ -207,7 +207,7 @@ function initialState() {
         end: '2020-01-30 17:00',
         color: 'blue',
         salle: 'DC S 111',
-        prof: 'SCHMITT Bénédicte'
+        prof: 'SCHMITT Bénédicte',
       },
 
       {
@@ -216,7 +216,7 @@ function initialState() {
         end: '2020-01-30 12:30',
         color: 'orange',
         salle: 'S 114',
-        prof: 'BERNARD Ingrid'
+        prof: 'BERNARD Ingrid',
       },
       {
         name: 'Spé Brand',
@@ -224,7 +224,7 @@ function initialState() {
         end: '2020-01-30 17:00',
         color: 'orange',
         salle: 'S 114',
-        prof: 'BERNARD Ingrid'
+        prof: 'BERNARD Ingrid',
       },
 
       {
@@ -233,7 +233,7 @@ function initialState() {
         end: '2020-01-31 12:30',
         color: 'indigo',
         salle: 'S 114',
-        prof: 'ALAUX Benoit'
+        prof: 'ALAUX Benoit',
       },
       {
         name: 'Outils Graphique et web',
@@ -241,9 +241,9 @@ function initialState() {
         end: '2020-01-31 17:00',
         color: 'indigo',
         salle: 'S 114',
-        prof: 'PEPIN Emmanuel'
-      }
-    ]
+        prof: 'PEPIN Emmanuel',
+      },
+    ],
   }
 }
 
@@ -252,5 +252,5 @@ export const state = initialState
 export const getters = {
   planning: (state) => {
     return state.planning
-  }
+  },
 }

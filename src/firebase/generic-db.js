@@ -21,7 +21,7 @@ export default class GenericDB {
     const dataToCreate = {
       ...data,
       createTimestamp: serverTimestamp,
-      updateTimestamp: serverTimestamp
+      updateTimestamp: serverTimestamp,
     }
 
     const createPromise = isNil(id)
@@ -39,7 +39,7 @@ export default class GenericDB {
       id: docId,
       ...data,
       createTimestamp: new Date(),
-      updateTimestamp: new Date()
+      updateTimestamp: new Date(),
     }
   }
 
@@ -79,7 +79,7 @@ export default class GenericDB {
       result.docs.map((ref) =>
         this.convertObjectTimestampPropertiesToDate({
           id: ref.id,
-          ...ref.data()
+          ...ref.data(),
         })
       )
 
@@ -100,7 +100,7 @@ export default class GenericDB {
       .doc(id)
       .update({
         ...clonedData,
-        updateTimestamp: firebase.firestore.FieldValue.serverTimestamp()
+        updateTimestamp: firebase.firestore.FieldValue.serverTimestamp(),
       })
 
     return id
@@ -111,10 +111,7 @@ export default class GenericDB {
    * @param id
    */
   delete(id) {
-    return this.fireStore
-      .collection(this.collectionPath)
-      .doc(id)
-      .delete()
+    return this.fireStore.collection(this.collectionPath).doc(id).delete()
   }
 
   /**
@@ -136,7 +133,7 @@ export default class GenericDB {
 
     return {
       ...obj,
-      newObj
+      newObj,
     }
   }
 }

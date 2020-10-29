@@ -29,16 +29,16 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters({
-      isLoggedIn: 'auth/isLoggedIn'
-    })
+      isLoggedIn: 'auth/isLoggedIn',
+    }),
   },
   methods: {
     logout() {
       this.$store.dispatch('auth/signOut').then(() => {
         console.log('logged out 📴')
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

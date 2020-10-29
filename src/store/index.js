@@ -20,5 +20,5 @@ export const actions = {
     } else {
       // TODO faire la déconnexion
     }
-  }
+  },
 }

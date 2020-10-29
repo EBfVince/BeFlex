@@ -1,6 +1,6 @@
 function initialState() {
   return {
-    authUser: null
+    authUser: null,
   }
 }
 
@@ -27,9 +27,9 @@ export const mutations = {
       uid: authUser.uid,
       email: authUser.email,
       displayName: authUser.displayName,
-      photoURL: authUser.photoURL
+      photoURL: authUser.photoURL,
     }
-  }
+  },
 }
 
 export const getters = {
@@ -42,10 +42,11 @@ export const getters = {
     } catch (err) {
       return false
     }
-  }
+  },
 }
 
 export const actions = {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   signIn({ commit, dispatch }, { authUser, claims }) {
     console.log(authUser)
     commit('setAuthUser', authUser)
@@ -65,5 +66,5 @@ export const actions = {
         console.error('Erreur', err)
         alert(err)
       })
-  }
+  },
 }

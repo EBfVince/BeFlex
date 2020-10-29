@@ -3,7 +3,7 @@
     <v-col>
       <v-sheet>
         <v-toolbar flat color="white">
-          <v-btn @click="prev" fab text small color="grey darken-2">
+          <v-btn fab text small color="grey darken-2" @click="prev">
             <v-icon small>mdi-chevron-left</v-icon>
           </v-btn>
           <!--
@@ -11,7 +11,7 @@
             Aujourd'hui
           </v-btn>
           -->
-          <v-btn @click="next" fab text small color="grey darken-2">
+          <v-btn fab text small color="grey darken-2" @click="next">
             <v-icon small>mdi-chevron-right</v-icon>
           </v-btn>
 
@@ -21,7 +21,7 @@
 
           <v-menu bottom right>
             <template v-slot:activator="{ on }">
-              <v-btn v-on="on" outlined color="grey darken-2">
+              <v-btn outlined color="grey darken-2" v-on="on">
                 <span>{{ typeToLabel[type] }}</span>
                 <v-icon right>mdi-menu-down</v-icon>
               </v-btn>
@@ -49,10 +49,10 @@
           :event-color="getEventColor"
           :type="type"
           :weekdays="weekdays"
+          color="primary"
           @click:event="showEvent"
           @click:more="viewDay"
           @change="updateRange"
-          color="primary"
         ></v-calendar>
         <v-menu
           v-model="selectedOpen"
@@ -65,7 +65,7 @@
             <v-toolbar :color="selectedEvent.color" dark>
               <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
               <v-spacer></v-spacer>
-              <v-btn @click="selectedOpen = false" icon>
+              <v-btn icon @click="selectedOpen = false">
                 <v-icon>mdi-close</v-icon>
               </v-btn>
             </v-toolbar>
@@ -96,19 +96,19 @@ export default {
       typeToLabel: {
         month: 'Mois',
         week: 'Semaine',
-        day: 'Jour'
+        day: 'Jour',
       },
       start: null,
       end: null,
       selectedEvent: {},
       selectedElement: null,
       selectedOpen: false,
-      weekdays: [1, 2, 3, 4, 5]
+      weekdays: [1, 2, 3, 4, 5],
     }
   },
   computed: {
     ...mapGetters({
-      planning: 'edt/planning'
+      planning: 'edt/planning',
     }),
     title() {
       const { start, end } = this
@@ -135,9 +135,9 @@ export default {
     monthFormatter() {
       return this.$refs.calendar.getFormatter({
         timeZone: 'UTC',
-        month: 'long'
+        month: 'long',
       })
-    }
+    },
   },
   mounted() {
     this.$refs.calendar.scrollToTime({ hour: 8, minute: 30 })
@@ -180,8 +180,8 @@ export default {
       this.start = start
       this.end = end
       // this.events = events
-    }
+    },
   },
-  middleware: 'securePage'
+  middleware: 'securePage',
 }
 </script>

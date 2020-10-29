@@ -5,7 +5,7 @@ function initialState() {
     products: null,
     productNameToCreate: '',
     productDeletionPending: [],
-    productCreationPending: false
+    productCreationPending: false,
   }
 }
 
@@ -38,7 +38,7 @@ export const mutations = {
 
   /* Product creation */
   setProductCreationPending: (state, value) =>
-    (state.productCreationPending = value)
+    (state.productCreationPending = value),
 }
 
 export const getters = {
@@ -52,7 +52,7 @@ export const getters = {
    * Get product by id
    */
   getProductById: (state) => (productId) =>
-    find(state.products, (product) => product.id === productId)
+    find(state.products, (product) => product.id === productId),
 }
 
 export const actions = {
@@ -101,5 +101,5 @@ export const actions = {
     await userProductsDb.delete(productId)
     commit('removeProductById', productId)
     commit('removeProductDeletionPending', productId)
-  }
+  },
 }
