@@ -9,7 +9,7 @@
       <v-card-title class="title">Connectez vous</v-card-title>
     </v-card>
     <client-only>
-      <firebase-ui class="mt-12" />
+      <FirebaseUI class="mt-12" />
     </client-only>
   </div>
 </template>
