@@ -21,7 +21,7 @@ li {
 </style>
 
 <script>
-import FirebaseUi from '~/components/FirebaseUI'
+import FirebaseUI from '~/components/FirebaseUI'
 
 export default {
   name: 'Login',
